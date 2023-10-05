@@ -1,6 +1,4 @@
 # Sistem-Apotek-Pweb
-Semoga Bisa Bermanfaat🙏 Masih Pemula☝️
-
 Cara fix error / tidak berfungsi :
 1. Cek dan baca bagian error
 2. Cek apakah data sudah dikirimkan dengan benar dengan echo atau var_dump()
