@@ -51,7 +51,7 @@
 </head>
 <body>
 <h1 align="center">LOGIN</h1>
-<form action="proses.php" method="post">
+<form action="proses-cookies.php" method="post">
     <table align="center">
         <tr>
             <td>Username</td>

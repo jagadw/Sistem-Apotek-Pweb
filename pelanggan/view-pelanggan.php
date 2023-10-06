@@ -1,5 +1,11 @@
 <?php
     include '../koneksi.php';
+    if(!@$_COOKIE['username']){
+        echo "<script>alert('Login terlebih dahulu!');window.location.href='view-pelanggan.php'</script>";
+    } else if(@$_COOKIE['leveluser']=='karyawan'){
+        echo "<script>alert('Login terlebih dahulu!');window.location.href='index.php'</script>";
+    }
+
     $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY idpelanggan DESC");
 ?>
 
@@ -45,9 +51,9 @@
 </head>
 <body>
     <?php
-    echo "Selamat Datang! Kak ".$_COOKIE['username'];
+    echo "Selamat Datang! Kak ".$_COOKIE['leveluser']." ".$_COOKIE['username'];
     ?>
-    <p><a id="logout" href="../logout.php">Logout</a></p>
+    <p><a id="logout" href="../logout-cookies.php">Logout</a></p>
 
     <h1 align="center">TABEL PELANGGAN</h1>
     <table border="3" align="center">
