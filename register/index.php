@@ -53,6 +53,22 @@
 <h1 align="center">REGISTER</h1>
 <form action="proses.php" method="post">
     <table align="center">
+    <tr>
+        <td>Nama Karyawan</td>
+            <td><select name="idkaryawan" value="" id="">
+            <?php
+        include "koneksi.php";
+        $query = "SELECT * FROM tb_karyawan WHERE idkaryawan NOT IN (SELECT idkaryawan FROM tb_login);";
+        $data = mysqli_query($koneksi, $query);
+        while($baris = mysqli_fetch_assoc($data)){
+        ?>
+        <option value="<?=$baris['idkaryawan'];?>"><?=$baris['namakaryawan'];?></option>
+        <?php
+        }
+    ?>
+            </select>
+        </td>
+        </tr>
         <tr>
             <td>Username</td>
             <td><input type="text" name="username"></td>
@@ -64,22 +80,6 @@
         <tr>
             <td>Level User</td>
             <td><input type="text" name="leveluser"></td>
-        </tr>
-        <tr>
-        <td>ID Karyawan</td>
-            <td><select name="idkaryawan" value="" id="">
-            <?php
-        include "koneksi.php";
-        $query = "SELECT * FROM tb_karyawan";
-        $data = mysqli_query($koneksi, $query);
-        while($baris = mysqli_fetch_assoc($data)){
-        ?>
-        <option value="<?=$baris['idkaryawan'];?>"><?=$baris['namakaryawan'];?></option>
-        <?php
-        }
-    ?>
-            </select>
-        </td>
         </tr>
         <tr>
             <td colspan="3" align="center"><input type="submit" value="Simpan" id="submit"></td>
