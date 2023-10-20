@@ -51,7 +51,7 @@
 </head>
 <body>
 <h1 align="center">REGISTER</h1>
-<form action="proses.php" method="post">
+<form action="encrypt.php" method="post">
     <table align="center">
     <tr>
         <td>Nama Karyawan</td>
