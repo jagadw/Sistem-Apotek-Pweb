@@ -60,11 +60,18 @@
         include "koneksi.php";
         $query = "SELECT * FROM tb_karyawan WHERE idkaryawan NOT IN (SELECT idkaryawan FROM tb_login);";
         $data = mysqli_query($koneksi, $query);
+        $cek = mysqli_num_rows($data);
+        if ($cek > 0) {
         while($baris = mysqli_fetch_assoc($data)){
         ?>
         <option value="<?=$baris['idkaryawan'];?>"><?=$baris['namakaryawan'];?></option>
         <?php
         }
+    } else {
+        ?>
+        <option value="">Semua karyawan telah register</option>
+        <?php
+    }
     ?>
             </select>
         </td>
@@ -79,7 +86,11 @@
         </tr>
         <tr>
             <td>Level User</td>
-            <td><input type="text" name="leveluser"></td>
+            <td><select name="leveluser" id="">
+                <option value="admin">admin</option>
+                <option value="karyawan">karyawan</option>
+                <option value="supplier">supplier</option>
+            </select></td>
         </tr>
         <tr>
             <td colspan="3" align="center"><input type="submit" value="Simpan" id="submit"></td>
