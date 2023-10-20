@@ -16,8 +16,8 @@
     }else{
         $query = mysqli_query($koneksi, "INSERT INTO tb_login
         VALUES ('$username', '$pass_hash', '$leveluser', '$idkaryawan')");
-        $hasil = mysqli_query($koneksi, $query);
-    if(!$hasil){
+        // $hasil = mysqli_query($koneksi, $query);
+    if(!$query){
         header('location: index.php?pesan=gagal_register');
     }else{
         header('location: ../index.php?pesan=berhasil_register');
