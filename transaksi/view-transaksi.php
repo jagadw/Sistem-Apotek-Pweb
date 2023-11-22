@@ -1,17 +1,17 @@
 <?php
-    include '../koneksi.php';
+    // include '../koneksi.php';
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabel Transaksi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>TABEL TRANSAKSI</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         td {
             margin: 8px;
         }
@@ -37,8 +37,8 @@
             text-decoration: none;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <h1 align="center">TABEL TRANSAKSI</h1>
     <table border="3" align="center">
         <thead>
@@ -58,27 +58,9 @@
             <?php
             $query = mysqli_query($koneksi, "SELECT * FROM tb_transaksi ORDER BY idtransaksi DESC");
             while($baris = mysqli_fetch_assoc($query)) {
-                $query_pelanggan = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM tb_pelanggan WHERE idpelanggan = '".$baris['idpelanggan']."'");
-                $query_login = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM tb_login WHERE idkaryawan = '".$baris['idkaryawan']."'");
-                $query_karyawan = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM tb_karyawan WHERE idkaryawan = '".$baris['idkaryawan']."'");
-
-                $result_pelanggan = mysqli_fetch_assoc($query_pelanggan);
-                $result_login = mysqli_fetch_assoc($query_login);
-                $result_karyawan = mysqli_fetch_assoc($query_karyawan);
-
-                if($result_pelanggan['total'] > 0) {
-                    $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idtransaksi=".$baris['idtransaksi']."'>Edit</a></td>";
-                } else if($result_login['total'] > 0) {
-                    $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idtransaksi=".$baris['idtransaksi']."'>Edit</a></td>";
-                } else if($result_karyawan['total'] > 0) {
-                    $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idtransaksi=".$baris['idtransaksi']."'>Edit</a></td>";
-                } else {
-                    $delete_button = "<td id='delete'><a href='delete.php?idtransaksi=".$baris['idtransaksi']."'>Del</a></td>";
-                    $edit_button = "<td id='edit'><a href='edit.php?idtransaksi=".$baris['idtransaksi']."'>Edit</a></td>";
-                }
+            $idtransaksi = $baris['idtransaksi'];
+            $hide_delete = mysqli_query($koneksi, "SELECT * FROM tb_transaksi INNER JOIN tb_detail_transaksi ON tb_transaksi.idtransaksi = tb_detail_transaksi.idtransaksi WHERE tb_transaksi.idtransaksi = $idtransaksi");
+            $cek = mysqli_num_rows($hide_delete);
             ?>
             <tr>
                 <td><?= $baris['idtransaksi']; ?></td>
@@ -89,13 +71,22 @@
                 <td><?= $baris['totalbayar']; ?></td>
                 <td><?= $baris['bayar']; ?></td>
                 <td><?= $baris['kembali']; ?></td>
-                <?= $delete_button; ?>
-                <?= $edit_button; ?>
+                <?php
+            // var_dump($cek);
+            if($cek==0){
+                ?>
+                <td id="delete"><a href="delete.php?idtransaksi=<?=$idtransaksi?>">Del</a></td>
+                <td id="edit"><a href="edit.php?idtransaksi=<?=$idtransaksi?>">Edit</a></td>
+                <?php
+            } else {
+                ?>
+                <td colspan="2" id="edit"><a href="edit.php?idtransaksi=<?=$idtransaksi?>">Edit</a></td>
             </tr>
             <?php
+                }
             }
             ?>
         </tbody>
     </table>
-</body>
-</html>
+<!-- </body>
+</html> -->

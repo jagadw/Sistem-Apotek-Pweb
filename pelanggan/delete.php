@@ -16,9 +16,9 @@
         $delete = mysqli_query($koneksi, "DELETE FROM tb_pelanggan WHERE idpelanggan='$idpelanggan'");
 
         if($delete) {
-            header('location: view-pelanggan.php?pesan=berhasil_diubah');
+            header('location: ../dashboard.php?page=pelanggan&pesan=berhasil_diubah');
         } else {
-            header('location: view-pelanggan.php?pesan=gagal_diubah');
+            header('location: ../dashboard.php?page=pelanggan&pesan=gagal_diubah');
         }
         // var_dump($delete);
     }

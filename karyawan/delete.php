@@ -30,9 +30,9 @@
         $delete = mysqli_query($koneksi, "DELETE FROM tb_karyawan WHERE idkaryawan='$idkaryawan'");
 
         if($delete) {
-            header('location: view-karyawan.php?pesan=berhasil_diubah');
+            header('location: ../dashboard.php?page=karyawan&pesan=berhasil_diubah');
         } else {
-            header('location: view-karyawan.php?pesan=gagal_diubah');
+            header('location: ../dashboard.php?page=karyawan&pesan=gagal_diubah');
         }
         // var_dump($delete);
     }

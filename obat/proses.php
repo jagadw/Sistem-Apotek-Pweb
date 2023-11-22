@@ -32,8 +32,8 @@
     // }
 
     if($query) {
-        header('location: view-obat.php?pesan=berhasil_ditambahkan');
+        header('location: ../dashboard.php?page=obat&pesan=berhasil_ditambahkan');
     }else{
-        header('location: index.php?pesan=gagal_ditambahkan');
+        header('location: ../dashboard.php?page=obat&pesan=gagal_ditambahkan');
     }
 ?>

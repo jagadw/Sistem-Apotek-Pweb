@@ -38,8 +38,8 @@
     // $buktifotoresep = isset($_FILES['buktifotoresep']['name']) ? $_FILES['buktifotoresep']['name'] : '';
 
     if($query) {
-        header('location: view-pelanggan.php?pesan=berhasil_ditambahkan');
+        header('location: ../dashboard.php?page=pelanggan&pesan=berhasil_ditambahkan');
     } else {
-        header('location: index.php?pesan=gagal_ditambahkan');
+        header('location: ../dashboard.php?page=pelanggan&pesan=gagal_ditambahkan');
     }
 ?>

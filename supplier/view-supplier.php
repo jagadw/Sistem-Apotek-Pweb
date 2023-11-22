@@ -1,17 +1,17 @@
 <?php
-include '../koneksi.php';
+// include '../koneksi.php';
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabel Supplier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>TABEL SUPPLIER</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         td {
             margin: 8px;
         }
@@ -36,11 +36,27 @@ include '../koneksi.php';
             color: #000;
             text-decoration: none;
         }
+        .addsupplier {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .addsupplier a {
+            background-color: #00adef;
+            border-radius: 8px;
+            color: #fff;
+            padding: 8px;
+            font-weight: bold;
+        }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <h1 align="center">TABEL SUPPLIER</h1>
-    <table border="3" align="center">
+    <div class="addsupplier">
+        <a href="dashboard.php?page=addsupplier">Tambah</a>
+    </div>
+    <br>
+    <table border="3" cellpadding="3" width="80%" align="center">
         <thead>
             <tr>
                 <!-- <th>ID Supplier</th> -->
@@ -60,10 +76,10 @@ include '../koneksi.php';
                 $result_obat = mysqli_fetch_assoc($query_obat);
                 if($result_obat['total'] > 0) {
                     $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idsupplier=".$baris['idsupplier']."'>Edit</a></td>";
+                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='dashboard.php?page=editsupplier&idsupplier=".$baris['idsupplier']."'>Edit</a></td>";
                 } else {
-                    $delete_button = "<td id='delete'><a href='delete.php?idsupplier=".$baris['idsupplier']."'>Del</a></td>";
-                    $edit_button = "<td id='edit'><a href='edit.php?idsupplier=".$baris['idsupplier']."'>Edit</a></td>";
+                    $delete_button = "<td id='delete'><a href='./supplier/delete.php?idsupplier=".$baris['idsupplier']."'>Del</a></td>";
+                    $edit_button = "<td id='edit'><a href='dashboard.php?page=editsupplier&idsupplier=".$baris['idsupplier']."'>Edit</a></td>";
                 }
             ?>
             <tr>
@@ -79,5 +95,5 @@ include '../koneksi.php';
             ?>
         </tbody>
     </table>
-</body>
-</html>
+<!-- </body>
+</html> -->

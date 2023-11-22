@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Tambah Obat</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -37,11 +37,11 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <br>
     <h1 align="center">TAMBAH OBAT</h1>
-    <form action="proses.php" method="post">
+    <form action="./obat/proses.php" method="post">
     <table border="0" align="center">
         <!-- <tr>
             <td>Id Obat</td>
@@ -51,7 +51,7 @@
             <td>Id Supplier</td>
             <td><select name="idsupplier" value="" id="">
             <?php
-        include "../koneksi.php";
+        // include "../koneksi.php";
         $query = "SELECT * FROM tb_supplier";
         $data = mysqli_query($koneksi, $query);
         while($baris = mysqli_fetch_assoc($data)){
@@ -97,5 +97,5 @@
     </table>
     </form>
 
-</body>
-</html>
+<!-- </body>
+</html> -->

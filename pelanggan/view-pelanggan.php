@@ -1,24 +1,24 @@
 <?php
-    include '../koneksi.php';
-    if(!@$_COOKIE['username']){
-        echo "<script>alert('Login terlebih dahulu!');window.location.href='view-pelanggan.php'</script>";
-    } else if(@$_COOKIE['leveluser']=='karyawan'){
-        echo "<script>alert('Login terlebih dahulu!');window.location.href='index.php'</script>";
-    }
+    // include '../koneksi.php';
+    // if(!@$_COOKIE['username']){
+    //     echo "<script>alert('Login terlebih dahulu!');window.location.href='view-pelanggan.php'</script>";
+    // } else if(@$_COOKIE['leveluser']=='karyawan'){
+    //     echo "<script>alert('Login terlebih dahulu!');window.location.href='index.php'</script>";
+    // }
 
     $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY idpelanggan DESC");
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Tabel Pelanggan</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         td {
             margin: 8px;
         }
@@ -39,24 +39,32 @@
         #delete {
             background-color: #dc3545;
         }
-        #logout {
-            background-color: #ffc107;
-            padding: 5px;
+        .addpelanggan {
+            text-align: center;
+            display: flex;
+            justify-content: center;
         }
-        a {
-            color: #000;
-            text-decoration: none;
+        .addpelanggan a {
+            background-color: #00adef;
+            border-radius: 8px;
+            color: #fff;
+            padding: 8px;
+            font-weight: bold;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <?php
-    echo "Selamat Datang! Kak ".$_COOKIE['leveluser']." ".$_COOKIE['username'];
+    // echo "Selamat Datang! Kak ".$_COOKIE['leveluser']." ".$_COOKIE['username'];
     ?>
-    <p><a id="logout" href="../logout-cookies.php">Logout</a></p>
+    <!-- <p><a id="logout" href="../logout-cookies.php">Logout</a></p> -->
 
     <h1 align="center">TABEL PELANGGAN</h1>
-    <table border="3" align="center">
+    <div class="addpelanggan">
+        <a href="dashboard.php?page=addpelanggan">Tambah</a>
+    </div>
+    <br>
+    <table border="3" cellpadding="3" width="80%" align="center">
         <thead>
             <tr>
                 <th>ID Pelanggan</th>
@@ -81,16 +89,18 @@
                 <td><?= $baris['alamat']; ?></td>
                 <td><?= $baris['telp']; ?></td>
                 <td><?= $baris['usia']; ?></td>
-                <td><a href="./images/<?= $baris['buktifotoresep']; ?>"><img src="./images/<?= $baris['buktifotoresep']; ?>" alt="<?= $baris['buktifotoresep']; ?>" width="300px" height="300px"></a></td>
+                <td><a href="./pelanggan/images/<?= $baris['buktifotoresep']; ?>">
+                <img src="./pelanggan/images/<?= $baris['buktifotoresep']; ?>" alt="<?= $baris['buktifotoresep']; ?>" width="300px" height="300px">
+            </a></td>
             <?php
             if ($cek==0) {
                 ?>
-                <td id="edit"><a href="edit.php?idpelanggan=<?= $baris['idpelanggan']; ?>">Edit</a></td>
-                <td id="delete"><a href="delete.php?idpelanggan=<?= $baris['idpelanggan']; ?>">Del</a></td>
+                <td id="edit"><a href="dashboard.php?page=editpelanggan&idpelanggan=<?= $baris['idpelanggan']; ?>">Edit</a></td>
+                <td id="delete"><a href="./pelanggan/delete.php?idpelanggan=<?= $baris['idpelanggan']; ?>">Del</a></td>
                 <?php
             } else {
                 ?>
-                <td colspan="2" id="edit"><a href="edit.php?idpelanggan=<?= $baris['idpelanggan']; ?>">Edit</a></td>
+                <td colspan="2" id="edit"><a href="dashboard.php?page=editpelanggan&idpelanggan=<?= $baris['idpelanggan']; ?>">Edit</a></td>
                 <?php
                 }
             ?>
@@ -100,5 +110,5 @@
             ?>
         </tbody>
     </table>
-</body>
-</html>
+<!-- </body>
+</html> -->

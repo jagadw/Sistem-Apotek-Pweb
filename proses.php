@@ -13,8 +13,8 @@ $hash = $baris_level['password'];
 if(password_verify($pass, $hash)) {
     $_SESSION['username'] = $user;
     $_SESSION['level'] = $baris_level;
-    header('location: ./obat/view-obat.php?pesan=Login_Berhasil');
+    header('location: dashboard.php?page=main&pesan=Login_Berhasil');
 } else {
-    header('location: index.php?pesan=Login_Gagal');
+    header('location: dashboard.php?page=main&pesan=Login_Gagal');
 }
 ?>

@@ -1,17 +1,17 @@
 <?php
-    include '../koneksi.php';
+    // include '../koneksi.php';
 ?>
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabel Karyawan</title>
+    <title>Tabel Karyawan</title> -->
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         td {
             margin: 8px;
         }
@@ -36,11 +36,27 @@
             color: #000;
             text-decoration: none;
         }
+        .addkaryawan {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .addkaryawan a {
+            background-color: #00adef;
+            border-radius: 8px;
+            color: #fff;
+            padding: 8px;
+            font-weight: bold;
+        }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <h1 align="center">TABEL KARYAWAN</h1>
-    <table border="3" align="center">
+    <div class="addkaryawan">
+        <a href="dashboard.php?page=addkaryawan">Tambah</a>
+    </div>
+    <br>
+    <table border="3" cellpadding="3" width="80%" align="center">
         <thead>
             <tr>
                 <!-- <th>ID Karyawan</th> -->
@@ -62,13 +78,13 @@
 
                 if($result_transaksi['total'] > 0) {
                     $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
+                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='dashboard.php?page=editkaryawan&idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
                 } else if($result_login['total'] > 0) {
                     $delete_button = "";
-                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='edit.php?idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
+                    $edit_button = "<td align='center' colspan='2' id='edit'><a href='dashboard.php?page=editkaryawan&idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
                 } else {
-                    $delete_button = "<td id='delete'><a href='delete.php?idkaryawan=".$baris['idkaryawan']."'>Del</a></td>";
-                    $edit_button = "<td id='edit'><a href='edit.php?idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
+                    $delete_button = "<td id='delete'><a href='./karyawan/delete.php?idkaryawan=".$baris['idkaryawan']."'>Del</a></td>";
+                    $edit_button = "<td id='edit'><a href='dashboard.php?page=editkaryawan&idkaryawan=".$baris['idkaryawan']."'>Edit</a></td>";
                 }
             ?>
             <tr>
@@ -83,5 +99,5 @@
             ?>
         </tbody>
     </table>
-</body>
-</html>
+<!-- </body>
+</html> -->

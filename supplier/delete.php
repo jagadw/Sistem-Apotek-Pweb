@@ -26,9 +26,9 @@
         $delete = mysqli_query($koneksi, "DELETE FROM tb_supplier WHERE idsupplier='$idsupplier'");
 
         if($delete) {
-            header('location: view-supplier.php?pesan=berhasil_diubah');
+            header('location: ../dashboard.php?page=supplier&pesan=berhasil_diubah');
         } else {
-            header('location: view-supplier.php?pesan=gagal_diubah');
+            header('location: ../dashboard.php?page=supplier&pesan=gagal_diubah');
         }
         // var_dump($delete);
     }

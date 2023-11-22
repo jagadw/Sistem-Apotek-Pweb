@@ -1,16 +1,16 @@
 <?php
-    include '../koneksi.php';
+    // include '../koneksi.php';
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDIT SUPPLIER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Edit Supplier</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -40,8 +40,8 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <?php
         if(isset($_GET['idsupplier'])) {
         $idsupplier = $_GET['idsupplier'];
@@ -49,7 +49,7 @@
         $baris = mysqli_fetch_assoc($query);    
     ?>
     <h1 align="center">EDIT SUPPLIER</h1>
-    <form action="edit.php" method="post">
+    <form action="dashboard.php?page=editsupplier" method="post">
         <table align="center">
             <tr>
                 <!-- <td>ID Supplier</td> -->
@@ -94,11 +94,11 @@
         $edit = mysqli_query($koneksi, "UPDATE tb_supplier SET idsupplier='$idsupplier', perusahaan='$perusahaan', telp='$telp', alamat='$alamat', keterangan='$keterangan' WHERE idsupplier='$idsupplier'");
     
         if ($edit) {
-            header('location: view-supplier.php?pesan=edit_berhasil');
+            header('location: dashboard.php?page=supplier&pesan=edit_berhasil');
         } else {
-            header('location: view-supplier.php?pesan=edit_gagal');
+            header('location: dashboard.php?page=supplier&pesan=edit_gagal');
         }    
     }
     ?>
-</body>
-</html>
+<!-- </body>
+</html> -->

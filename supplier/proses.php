@@ -10,8 +10,8 @@
     VALUES (NULL, '$perusahaan', '$telp', '$alamat','$keterangan')");
 
     if($query) {
-        header('location: view-supplier.php?pesan=berhasil_ditambahkan');
+        header('location: ../dashboard.php?page=supplier&pesan=berhasil_ditambahkan');
     } else {
-        header('location: index.php?pesan=gagal_ditambahkan');
+        header('location: ../dashboard.php?page=supplier&pesan=gagal_ditambahkan');
     }
 ?>

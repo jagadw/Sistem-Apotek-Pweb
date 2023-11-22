@@ -1,16 +1,16 @@
 <?php
-    include '../koneksi.php';
+    // include '../koneksi.php';
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Edit Karyawan</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -40,8 +40,8 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <?php
         if(isset($_GET['idkaryawan'])) {
         $idkaryawan = $_GET['idkaryawan'];
@@ -49,7 +49,7 @@
         $baris = mysqli_fetch_assoc($query);    
     ?>
     <h1 align="center">EDIT KARYAWAN</h1>
-    <form action="edit.php" method="post">
+    <form action="dashboard.php?page=editkaryawan" method="post">
         <table align="center">
             <tr>
                 <!-- <td>ID karyawan</td> -->
@@ -89,11 +89,11 @@
         $edit = mysqli_query($koneksi, "UPDATE tb_karyawan SET idkaryawan='$idkaryawan', namakaryawan='$namakaryawan', alamat='$alamat',telp='$telp' WHERE idkaryawan='$idkaryawan'");
 
         if ($edit) {
-            header('location: view-karyawan.php?pesan=edit_berhasil');
+            header('location: dashboard.php?page=karyawan&pesan=edit_berhasil');
         } else {
-            header('location: view-karyawan.php?pesan=edit_gagal');
+            header('location: dashboard.php?page=karyawan&pesan=edit_gagal');
         }    
     }
     ?>
-</body>
-</html>
+<!-- </body>
+</html> -->

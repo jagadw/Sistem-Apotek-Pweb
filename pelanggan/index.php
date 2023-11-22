@@ -1,17 +1,17 @@
 <?php
-    include '../koneksi.php';
+    // include '../koneksi.php';
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Tambah Pelanggan</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -41,10 +41,10 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
 <h1 align="center">TAMBAH PELANGGAN</h1>
-<form action="proses.php" method="post" enctype="multipart/form-data">
+<form action="./pelanggan/proses.php" method="post" enctype="multipart/form-data">
     <table align="center">
         <!-- <tr>
             <td>ID Pelanggan</td>
@@ -78,5 +78,5 @@
         </tr>
     </table>
     </form>
-</body>
-</html>
+<!-- </body>
+</html> -->

@@ -1,16 +1,16 @@
 <?php
-include '../koneksi.php';
+// include '../koneksi.php';
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Edit Pelanggan</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -40,8 +40,8 @@ include '../koneksi.php';
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <?php
     if(isset($_GET['idpelanggan'])) {
         $idpelanggan = $_GET['idpelanggan'];
@@ -49,7 +49,7 @@ include '../koneksi.php';
         $baris = mysqli_fetch_assoc($query);
         ?>
         <h1 align="center">EDIT PELANGGAN</h1>
-        <form action="edit.php" method="post" enctype="multipart/form-data">
+        <form action="dashboard.php?page=editpelanggan" method="post" enctype="multipart/form-data">
         <table align="center">
             <tr>
                 <td><input type="hidden" name="idpelanggan" value="<?= $baris['idpelanggan']?>"></td>
@@ -72,7 +72,7 @@ include '../koneksi.php';
             </tr>
             <tr>
                 <td>Bukti Foto Resep</td>
-                <td><img src="./images/<?= $baris['buktifotoresep']?>" width="100px" height="100px"></td>
+                <td><img src="./pelanggan/images/<?= $baris['buktifotoresep']?>" width="100px" height="100px"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="file" name="buktifotoresep" value="<?= $baris['buktifotoresep']?>"></td>
@@ -97,7 +97,7 @@ include '../koneksi.php';
         $usia = $_POST['usia'];
         $buktifotoresep = $_FILES['buktifotoresep']['name'];
         $file_tmp = $_FILES['buktifotoresep']['tmp_name'];
-        move_uploaded_file($file_tmp, "./images/".$buktifotoresep);
+        move_uploaded_file($file_tmp, "./pelanggan/images/".$buktifotoresep);
 
         // cara cek error : ketikan echo pada bagian kode yang dirasa mencurigakan
         echo "UPDATE tb_pelanggan SET idpelanggan='$idpelanggan', namapelanggan='$namapelanggan', alamat='$alamat', telp='$telp', usia='$usia', buktifotoresep='$buktifotoresep' WHERE idpelanggan='$idpelanggan'";
@@ -105,9 +105,9 @@ include '../koneksi.php';
         $edit = mysqli_query($koneksi, "UPDATE tb_pelanggan SET idpelanggan='$idpelanggan', namapelanggan='$namapelanggan', alamat='$alamat', telp='$telp', usia='$usia', buktifotoresep='$buktifotoresep' WHERE idpelanggan='$idpelanggan'");
 
         if ($edit) {
-            header('location: view-pelanggan.php?pesan=edit_berhasil');
-            } else {
-            header('location: view-pelanggan.php?pesan=edit_gagal');
+            header('location: dashboard.php?page=pelanggan&pesan=edit_berhasil');
+            
+            header('location: dashboard.php?page=pelanggan&pesan=edit_gagal');
             }
     }
     ?>

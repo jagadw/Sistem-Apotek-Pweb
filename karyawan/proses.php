@@ -10,8 +10,8 @@
     VALUES (NULL, '$namakaryawan', '$alamat', '$telp')");
 
     if($query) {
-        header('location: view-karyawan.php?pesan=berhasil_ditambahkan');
+        header('location: ../dashboard.php?page=karyawan&pesan=berhasil_ditambahkan');
     } else {
-        header('location: index.php?pesan=gagal_ditambahkan');
+        header('location: ../dashboard.php?page=karyawan&pesan=gagal_ditambahkan');
     }
 ?>

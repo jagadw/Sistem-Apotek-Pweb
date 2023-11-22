@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Tambah Supplier</title>
     <style>
-        * {
+        /* * {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
+        } */
         table {
             box-shadow: 0 3px 20px rgba(0,0,0,0.3);
             padding: 20px;
@@ -37,11 +37,11 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
+<!-- </head>
+<body> -->
     <br>
     <h1 align="center">TAMBAH SUPPLIER</h1>
-    <form action="proses.php" method="post">
+    <form action="./supplier/proses.php" method="post">
     <table border="0" align="center">
         <!-- <tr>
             <td>ID Supplier</td>
@@ -73,5 +73,5 @@
     </table>
     </form>
 
-</body>
-</html>
+<!-- </body>
+</html> -->

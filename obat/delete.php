@@ -26,9 +26,9 @@
         $delete = mysqli_query($koneksi, "DELETE FROM tb_obat WHERE idobat='$idobat'");
 
         if($delete) {
-            header('location: view-obat.php?pesan=berhasil_diubah');
+            header('location: ../dashboard.php?page=obat&pesan=berhasil_diubah');
         } else {
-            header('location: view-obat.php?pesan=gagal_diubah');
+            header('location: ../dashboard.php?page=obat&pesan=gagal_diubah');
         }
     }
 ?>
